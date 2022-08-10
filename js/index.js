@@ -1,1 +1,12 @@
-console.log("Hi new coyote, let's have some JavaScript fun!")
+const inputs = document.querySelectorAll(".controls input");
+
+function handleUpdate() {
+  const suffix = this.dataset.sizing || "";
+  document.documentElement.style.setProperty(
+    `--${this.name}`,
+    this.value + suffix
+  );
+}
+
+inputs.forEach((input) => input.addEventListener("change", handleUpdate));
+inputs.forEach((input) => input.addEventListener("mouseover", handleUpdate));
